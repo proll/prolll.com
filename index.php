@@ -55,7 +55,7 @@ $newToken = generateFormToken('form1');
 							<header>
 								<h1>Hi. I'm <strong>Gleb Polushkin</strong>.</h1>
 							</header>
-							<p>And this is <strong>Miniport</strong>, a free, fully responsive HTML5 site template designed by <a href="http://n33.co/">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a> &amp; released under the <a href="http://html5up.net/license/">CCA license</a>.</p>
+							<p>I am a <strong>front-end developer</strong> with 5 years expirience of javascript programming and over 10 years expirience of actionscript programming.</p>
 							<a href="#work" class="button button-big">Learn about what I do</a>
 						</div>
 					</div>
