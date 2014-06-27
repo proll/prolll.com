@@ -1,20 +1,3 @@
-<!-- 
-<?php
-function generateFormToken($form) {
-	// generate a token from an unique value, took from microtime, you can also use salt-values, other crypting methods...
-	$token = md5(uniqid(microtime(), true));  
-	
-	// Write the generated token to the session variable to check it against the hidden field when the form is sent
-	$_SESSION[$form.'_token'] = $token; 
-	
-	return $token;
-}
-
-
-// generate a new token for the $_SESSION superglobal and put them in a hidden field
-$newToken = generateFormToken('form1');   
-?>
- -->
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -295,3 +278,18 @@ $newToken = generateFormToken('form1');
 
 	</body>
 </html>
+<?php
+function generateFormToken($form) {
+	// generate a token from an unique value, took from microtime, you can also use salt-values, other crypting methods...
+	$token = md5(uniqid(microtime(), true));  
+	
+	// Write the generated token to the session variable to check it against the hidden field when the form is sent
+	$_SESSION[$form.'_token'] = $token; 
+	
+	return $token;
+}
+
+
+// generate a new token for the $_SESSION superglobal and put them in a hidden field
+$newToken = generateFormToken('form1');   
+?>
