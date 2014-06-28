@@ -69,6 +69,9 @@ LOG;
 		
 		return true;
 	}
+
+
+	$form = 'form1';
 	
 	// VERIFY LEGITIMACY OF TOKEN
 	if (verifyFormToken('form1')) {
@@ -135,7 +138,7 @@ LOG;
 		die();
 	} else {
 	
-		if (!isset($_SESSION[$form.'_token'])) {
+		if (!isset($_SESSION['form1_token'])) {
 		
 		} else {
 			echo "Hack-Attempt detected. Got ya!.";
