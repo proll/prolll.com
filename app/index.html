@@ -37,6 +37,21 @@
 		<link rel="stylesheet" href="/styles/css/prolll.css" />
 		<!--[if lte IE 8]><script src="/scripts/html5shiv.js"></script><![endif]-->
 	</head>
+<?php
+function generateFormToken($form) {
+	// generate a token from an unique value, took from microtime, you can also use salt-values, other crypting methods...
+	$token = md5(uniqid(microtime(), true));  
+	
+	// Write the generated token to the session variable to check it against the hidden field when the form is sent
+	$_SESSION[$form.'_token'] = $token; 
+	
+	return $token;
+}
+
+
+// generate a new token for the $_SESSION superglobal and put them in a hidden field
+$newToken = generateFormToken('form1');   
+?>
 	<body>
 
 		<!-- Nav -->
@@ -219,7 +234,7 @@
 					<div>
 						<div class="row">
 							<div class="12u">
-								<form method="post" action="#">
+								<form method="post" action="#" class="mail-form">
 									<input type="hidden" name="token" id="token" value="<?php echo $newToken;?>"/>
 									<div>
 										<div class="row half">
@@ -288,18 +303,3 @@
 
 	</body>
 </html>
-<?php
-function generateFormToken($form) {
-	// generate a token from an unique value, took from microtime, you can also use salt-values, other crypting methods...
-	$token = md5(uniqid(microtime(), true));  
-	
-	// Write the generated token to the session variable to check it against the hidden field when the form is sent
-	$_SESSION[$form.'_token'] = $token; 
-	
-	return $token;
-}
-
-
-// generate a new token for the $_SESSION superglobal and put them in a hidden field
-$newToken = generateFormToken('form1');   
-?>

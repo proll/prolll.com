@@ -45,4 +45,47 @@ jQuery(function() {
 		}
 	});
 
+
+	 function isEmail(email) {
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email)
+	};
+
+
+	var that = this,
+		$mail_form = $('form.mail-form'),
+		$name = $mail_form.find('[name=name]'),
+		$email = $mail_form.find('[name=email]'),
+		$subject = $mail_form.find('[name=subject]'),
+		$message = $mail_form.find('[name=message]');
+
+	$mail_form.on('submit', function(e) {
+		if(e && e.preventDefault) {
+			e.preventDefault();
+		}
+
+		// validate
+		var name = $.trim($name.val()),
+			email = $.trim($email.val()),
+			subject = $.trim($subject.val()),
+			message = $.trim($message.val());
+
+		if(!name.length) {
+			showError('Introduce yourself, please', 'name');
+		} else if(!isEmail(email)) {
+			showError('Wrong email', 'email');
+		} else if(!subject.length) {
+			showError('What is the subject of your message?', 'subject');
+		} else if(!message.length) {
+			showError('Write me something, it would be great', 'message');
+		} else {
+			$.ajax();
+		}
+
+
+		return false;
+	})
+
+
+
 });
