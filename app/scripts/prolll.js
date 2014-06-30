@@ -143,6 +143,8 @@ jQuery(function() {
 	function success(response, status, xhr){
 		loading = false;
 		_b.toggleClass('success', true);
+		
+		$mail_form.get(0).reset();
 
 		showSuccess(response);
 	}
