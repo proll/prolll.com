@@ -67,15 +67,26 @@ jQuery(function() {
 		}
 	}
 
+	function showSuccess(txt, name) {
+		$error.html(txt);
+		_b.toggleClass('error', false)
+		  .toggleClass('success', true);
+		if(!!name) {
+			$mail_form.find('[name='+name+']').focus();
+		}
+	}
+
+	function hideError() {
+		_b.toggleClass('error', false)
+		  .toggleClass('success', false);
+	}
+
 	if (jQuery.browser.msie && jQuery.browser.version <= 9)
 		jQuery('form').n33_formerize();
 
 	$('form .form-button-submit').click(function(e) { e.preventDefault(); jQuery(this).closest('form').submit(); hideError();});
 	$('form .form-button-reset').click(function(e) { e.preventDefault(); jQuery(this).closest('form')[0].reset(); $name.focus(); hideError()});
 
-	function hideError() {
-		_b.toggleClass('error', false);
-	}
 
 	$mail_form.find(':input').on('keypress', hideError);
 
@@ -132,8 +143,8 @@ jQuery(function() {
 	function success(response, status, xhr){
 		loading = false;
 		_b.toggleClass('success', true);
-		
-		showError(response);
+
+		showSuccess(response);
 	}
 
 	function error(xhr, status, desc) {
