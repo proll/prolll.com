@@ -60,7 +60,8 @@ jQuery(function() {
 
 	function showError(txt, name) {
 		$error.html(txt);
-		_b.toggleClass('error', true);
+		_b.toggleClass('error', true)
+		  .toggleClass('success', false);
 		if(!!name) {
 			$mail_form.find('[name='+name+']').focus();
 		}
@@ -130,16 +131,15 @@ jQuery(function() {
 
 	function success(response, status, xhr){
 		loading = false;
-		console.log(response);
-		// if (!resp || !resp.success) {
-		// 	this.error();
-		// } else {
-		// }
+		_b.toggleClass('success', true);
+		
+		showError(response);
 	}
 
 	function error(xhr, status, desc) {
 		loading = false;
-		console.log(xhr, status, desc);
+		_b.toggleClass('success', false);
+
 		if(!!xhr.responseText) {
 			showError(xhr.responseText);
 		}

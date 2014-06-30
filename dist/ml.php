@@ -108,8 +108,8 @@ LOG;
 		
 		//  MAKE SURE THE "FROM" EMAIL ADDRESS DOESN'T HAVE ANY NASTY STUFF IN IT
 		$pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i"; 
-		if (preg_match($pattern, trim(strip_tags($_POST['req-email'])))) { 
-			$cleanedFrom = trim(strip_tags($_POST['req-email'])); 
+		if (preg_match($pattern, trim(strip_tags($_POST['email'])))) { 
+			$cleanedFrom = trim(strip_tags($_POST['email'])); 
 		} else { 
 			return "The email address you entered was invalid. Please try again!"; 
 		} 
