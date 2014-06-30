@@ -46,6 +46,7 @@ jQuery(function() {
 	var that = this,
 		loading = false,
 		$mail_form = $('form.mail-form'),
+		$token = 	$mail_form.find('[name=token]'),
 		$name = 	$mail_form.find('[name=name]'),
 		$email = 	$mail_form.find('[name=email]'),
 		$subject = 	$mail_form.find('[name=subject]'),
@@ -84,7 +85,8 @@ jQuery(function() {
 		}
 
 		// validate
-		var name = $.trim($name.val()),
+		var token = $token.val(),
+			name = $.trim($name.val()),
 			email = $.trim($email.val()),
 			subject = $.trim($subject.val()),
 			message = $.trim($message.val());
@@ -108,6 +110,7 @@ jQuery(function() {
 				type: 		'post',
 				url: 		'/ml.php',
 				data: {
+					token: token,
 					name : name,
 					email : email,
 					subject : subject,
