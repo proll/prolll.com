@@ -99,7 +99,7 @@ LOG;
 		$message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . strip_tags($_POST['name']) . "</td></tr>";
 		$message .= "<tr><td><strong>Email:</strong> </td><td>" . strip_tags($_POST['email']) . "</td></tr>";
 		$message .= "<tr><td><strong>Subject:</strong> </td><td>" . strip_tags($_POST['subject']) . "</td></tr>";
-		$message .= "<tr><td colspan=\"2\">" . htmlentities($_POST['message']) . "</td></tr>";
+		$message .= "<tr><td colspan=\"2\">" . htmlentities($_POST['message'], ENT_QUOTES, 'UTF-8') . "</td></tr>";
 		$message .= "</table>";
 		$message .= "</body></html>";
 		
