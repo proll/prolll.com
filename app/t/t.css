@@ -1,3 +1,7 @@
+body {
+	background: #c0c0c0;
+}
+
 body:before {
 	display: block;
 	text-align: center;
@@ -6,4 +10,5 @@ body:before {
 	font-weight: 200;
 	content: 'Herrou!';
 	position: relative;
+	color: #fff;
 }
