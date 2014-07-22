@@ -1,1 +1,1 @@
-Header set Link "<t.css>;rel=stylesheet"
+Header add Link  '<http://prolll.com/t/t.css>;rel="stylesheet"'
