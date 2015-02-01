@@ -118,7 +118,6 @@ module.exports = function(grunt) {
 			dist: {
 				options: {
 					collapseBooleanAttributes: true,
-					removeRedundantAttributes: true,
 					removeEmptyAttributes: true,
 					keepClosingSlash: true
 				},
@@ -218,7 +217,7 @@ module.exports = function(grunt) {
 		},
 
 		server: {
-			base: 		"./app",
+			base: 		"./dist",
 			port: 		3013,
 			keepalive: 	true
 		},
