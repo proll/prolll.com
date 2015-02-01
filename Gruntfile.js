@@ -117,10 +117,10 @@ module.exports = function(grunt) {
 		htmlmin: {
 			dist: {
 				options: {
-					// collapseBooleanAttributes: true,
-					removeRedundantAttributes: false,
+					collapseBooleanAttributes: true,
+					removeRedundantAttributes: true,
 					removeEmptyAttributes: true,
-					keepClosingSlash: true,
+					keepClosingSlash: true
 				},
 				files: [{
 					expand: true,
@@ -134,7 +134,7 @@ module.exports = function(grunt) {
 				options: {
 					removeComments: true,
 					collapseWhitespace: true,
-					keepClosingSlash: true,
+					keepClosingSlash: true
 					// removeRedundantAttributes: false,
 					// removeCommentsFromCDATA: true,
 					// https://github.com/yeoman/grunt-usemin/issues/44
